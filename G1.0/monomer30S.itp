@@ -1,0 +1,10 @@
+[ moleculetype ]
+R30S    1
+
+[ atoms ]
+1       R3      1       R30S    R3      1         0.0000
+
+#ifdef POSRES
+[ position_restraints ]
+1	2	6	6.157	310.000	32.400	12.315	12.315	44.715
+#endif

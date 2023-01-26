@@ -1,0 +1,16 @@
+#include "param.itp"
+#include "pol.itp"
+#include "polysome.itp"
+#include "monomer30S.itp"
+#include "monomer50S.itp"
+
+
+[ system ]
+Chromsome at 500 bp with G=1.00
+
+
+[ molecules ]
+POL1    1
+R70S    1292
+R30S    2102
+R50S    2102
