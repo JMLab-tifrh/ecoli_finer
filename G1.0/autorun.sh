@@ -1,7 +1,7 @@
 # this script automates the simulation protocol
 # these are the steps required for simulation
 
-# defining executable paths
+# defining executable paths. replace with your local paths to executables
 python="python"
 gmx="/apps/gmx-5.0.6_sph/bin/gmx"
 gmx22="/apps/gmx-2022/bin/gmx"
