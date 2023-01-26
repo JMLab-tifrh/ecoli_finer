@@ -1,0 +1,70 @@
+[ defaults ]
+1       1       no      1       1
+
+[ atomtypes ]
+;atomtype       mass    charge  particle        c6      c12
+;-------        ----    -----   -------         ---     ---
+F               1.00    0.00    A               0.0     4.000e-04
+T               1.00    0.00    A               0.0     4.000e-04
+B               1.00    0.00    A               0.0     4.000e-04
+R3              2.62    0.00    A               0.0     2.236e-08
+R5              4.19    0.00    A               0.0     2.298e-07
+R7              7.12    0.00    A               0.0     2.901e-06
+[ nonbond_params ]
+;i      j       func    c6      c12
+;--     --      ----    --      ---
+;intra chromosome
+F       F       1       0.00    4.000e-04
+T       T       1       0.00    4.000e-04
+B       B       1       0.00    4.000e-04
+F       T       1       0.00    4.000e-04
+F       B       1       0.00    4.000e-04
+B       T       1       0.00    4.000e-04
+;ribosomal interactions
+R3      R3      1       0.00    2.236e-08
+R5      R5      1       0.00    2.298e-07
+R7      R7      1       0.00    2.901e-06
+R3      R5      1       0.00    7.167e-08
+R5      R7      1       0.00    8.164e-07
+R7      R3      1       0.00    2.547e-07
+;chromosome - ribosome interactions 
+F       R3      1       3.459e-04    2.990e-08 
+T       R3      1       3.459e-04    2.990e-08
+B       R3      1       3.459e-04    2.990e-08
+F       R5      1       3.459e-04    9.587e-08
+T       R5      1       3.459e-04    9.587e-08
+B       R5      1       3.459e-04    9.587e-08
+F       R7      1       3.459e-04    3.406e-07
+T       R7      1       3.459e-04    3.406e-07
+B       R7      1       3.459e-04    3.406e-07
+ 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                     actual values                      ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;ep6 = 1.00e-01, ep12 = 1.00e-02
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;sigma = 6.821e-08 (length scales)
+;chromosome(1 bead = 500bp)
+;size of 1 chromosome bead = 31.66 nm
+;mass of 1 chromosome bead = 3.24e+02 KDa [1]
+;epsilon for all chromosome beads = 1.00
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;ribosome parameters
+;size of 30S subunit = 14 nm [2]
+;mass of 30S subunit = 8.50e+02 KDa [3]
+;epsilon of 30S subunit = 1.00e+00
+;
+;size of 50S subunit = 17 nm [2]
+;mass of 50S subunit = 1.39e+03 KDa [3]
+;epsilon of 50S subunit = 1.00e+00
+;
+;size of 70S subunit = 21 nm [2]
+;mass of 70S subunit = 2.31e+03 KDa [3]
+;epsilon of 70S subunit = 1.00e+00
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                         References                     ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;[1] https://bionumbers.hms.harvard.edu/files/Nucleic%20Acids_Sizes_and_Molecular_Weights_2pgs.pdf
+;[2] https://onlinelibrary.wiley.com/doi/full/10.1111/mmi.12805
+;[3] https://www.nature.com/articles/nmeth.4147/
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
