@@ -1,4 +1,5 @@
-# README
+# Simulation of a single, unreplicated chromosome
 
-please run autotun.sh to start the process.<br>
-autorun.sh has short documentations within it. The script is self-explanatory.
+Please run autotun.sh to start the process.<br>
+```autorun.sh``` has short documentations within it. The script is self-explanatory. <br>
+Also please read the main documentation.
