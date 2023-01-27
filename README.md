@@ -21,11 +21,11 @@ This repository contains two folders named ```G1.0``` and ```G1.6```.<br>
   * **indices_fork.txt** : updated indices such that the replicated region of the chromosome can now be mapped to the parent region, from where it was replicated.
   
   
-  #### files for ribosome parameters and topology
+  ### files for ribosome parameters and topology
   * **pol.itp** : needed by GMX. contains the architecture (bonds, particle numbers, system definition) for the polymer.
   * **hic.itp** : needed by GMX. contains information on _Hi-C_ bonds.
  
-  #### files for ribosome parameters and topology
+  ### files for ribosome parameters and topology
   * **monomer30S.itp** : needed by GMX. topology for a single 30S ribosomal subunit.
   * **monomer50S.itp** : needed by GMX. topology for a single 50S ribosomal subunit.
   * **polysome.itp** : needed by GMX. topology for a 13-mer of 7S ribosomal subunits.
@@ -33,11 +33,11 @@ This repository contains two folders named ```G1.0``` and ```G1.6```.<br>
   * **monomer50S.gro** : needed by GMX. contains initial configuration for a single 50S ribosomal subunit.
   * **polymer.gro** : needed by GMX. contains initial configuration for a 13-mer of 70S ribosomal subunits.
 
-  #### files defining the complete system topology and all non-bonded interactions
+  ### files defining the complete system topology and all non-bonded interactions
   * **topol.top** : needed by GMX. defines the complete system topology.
   * **param.itp** : needed by GMX. contains information regarding non-bonded interactions among various bead types.
 
-  #### simulation configuration files (.mdp)
+  ### simulation configuration files (.mdp)
   * **nrg_min.mdp** : energy minimization file when PBC has been turned off. Cannot use paralleization of simulation.
   * **nrg_min_gpu.mdp** : energy minimization file when PBC is present. Can use paralleization and GPU acceleration, if present.
   * **prod_md_init.mdp** : MD configuration file when PBC has been turned off. Cannot use paralleization of simulation.
