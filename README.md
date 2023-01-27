@@ -8,7 +8,7 @@ This repository contains two folders named ```G1.0``` and ```G1.6```.<br>
 ## List and descriptions of files required for generation and simulation of chromosome.
   * **RNA-Seq data** : The RNA-Seq data in present in a file named ```rnaByDNA_scholz.csv```[[1]](https://www.sciencedirect.com/science/article/pii/S2405471219300389).
   * **expt_pij_wt30MM_5kb.mat** : The Hi-C contact probability matrix at 5000 bp resolution for WT cells grown at 30 &deg;C in M9 minimal media[[2]](https://www.sciencedirect.com/science/article/pii/S0092867417315076).
-  * **box.dat** : This is an optiional file. If present, ```build.py``` will detect it and use it to define the spherocylinder and simulation box dimensions. Else the script will ask for explicit input from the user. The values are in reduced units. $\sigma = 68.21$ nm, where $\sigma$ is the value of unit length in our simulations. Therefore the cell dimensions radius $(r) = 0.82$ $\mu m$ and total length $(L) = 3.05$ $\mu m$ reduces to $r = 12.314910 \sigma$ as the $L = 44.714850 \sigma$.<br>
+  * **box.dat** : This is an optiional file. If present, ```build.py``` will detect it and use it to define the spherocylinder and simulation box dimensions. Else the script will ask for explicit input from the user. The values are in reduced units. $\sigma = 68.21$ nm, where $\sigma$ is the value of unit length in our simulations. Therefore the cell dimensions, radius $(r) = 0.82$ $\mu m$ and total length $(L) = 3.05$ $\mu m$, reduce to $r = 12.314910 \sigma$ as the $L = 44.714850 \sigma$.<br>
 
 ## General protocol
 The gene
