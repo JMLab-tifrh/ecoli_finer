@@ -52,10 +52,23 @@ This repository contains two folders named ```G1.0``` and ```G1.6```.<br>
 The following is the generic protocol for any simulation.<br>
 1. use ```rnaSeq_to_labels.py``` to convert RNA-Seq data to PARs and PFRs information. The file generated from this step is ```labels_rnaSeq.txt```. This step is required only once. In case one needs to re-run simulations, one may start from step-2 directly if ```labels_rnaSeq.txt``` is already present. The file ```rnaByDNA_scholz.csv``` is required in this step.<br>
 2. use ```build.py``` to generate the initial architecture of the chromosome. Here the files required are ```labels_rnaSeq.txt```, ```expt_pij_wt30MM_5kb.mat``` and optionally ```box.dat```. ```build.py``` will require two arguments that need to be passed during execution. The first is the path to the file ```labels_rnaSeq.txt``` and secondly the _G value_ of the chromosome, i.e. its replication status. Upon successful execution, the following files will be generated: ```pol.gro```, ```index.txt```, ```labels.txt``` and ```bonds.txt```. Though this script will not generate the achitecture of the replicating chromosome, it will write the information in the first line of the output file ```pol.gro```. Another script ```genRepfork.py``` is then required to be run for generation of a replication fork. ```genRepfork.py``` will read the first line of ```pol.gro``` to determine the replication status and generate files that contain the information regarding the chromosome and the replication fork. (```pol_fork.gro```, ```indices_fork.txt```, ```labels_fork.txt``` and ```bonds_fork.txt```)
-3. 
+3. use ```gentopol.py``` with the appropriate input file (```pol.gro``` incase of an unreplicated chromosome and ```pol_fork.gro``` if replication fork is present) to generate the system topologies for GMX to use. Also mention to ```gentopol.py``` that PBC is not present. Run ```python gentopol.py``` to get its usage.
+4. Perform an energy minimization, while keeping Hi-C bonds turned off to confine the generated initial configuration into the sphero-cylinder.
+5. Insert the required number of ribosomes and polysomes.
+6. Perform another energy minimization to remove unphysical conformations (eg. particle overlaps).
+7. Next turn on _Hi-C_ bonds and perform another minimization.
+8. Run a short equilibration without PBC.
+9. Centre the system in the middle of an enlarged box. (we will discuss this trick in a later section).
+10. Regenerate topologies using ```gentopol.py``` but inform the script that PBC has to be turned on. Also use the .gro file obtained in step-9 for ```gentopol.py`` in this step.
+11. Uncomment the ribosome part from ```topol.top```, which are, be default commented out.
+12. Perform another minimization so that no partcile crosess the PBC.
+13. Perform molecular dynamics simulations.
+14. Once simulations are over, re-centre the generated trajectories/conformations in the original box.
 
+Th procotol has been automated in ```autorun.sh``` files present in each folder. The bash script also contains short documentations.
 
-** Documentation is being compiled.
+## The trick for GPU acceleration using PBC and an enlarged box size
+
 
 ## References
 [[1]](https://www.sciencedirect.com/science/article/pii/S2405471219300389)  Scholz, S.A., Diao, R., Wolfe, M.B., Fivenson, E.M., Lin, X.N. and Freddolino, P.L., 2019. High-resolution mapping of the Escherichia coli chromosome reveals positions of high and low transcription. Cell systems, 8(3), pp.212-225.<br>
