@@ -18,7 +18,7 @@ rrn_operons = {'rrnA':rrnA, 'rrnB':rrnB, 'rrnC':rrnC,
                'rrnD':rrnD, 'rrnE':rrnE, 'rrnG':rrnG,
                'rrnH':rrnH, 'oriC':oriC}
 
-rnaSeq = pd.read_csv('rnaByDNA_scholes.csv', index_col=0)
+rnaSeq = pd.read_csv('rnaByDNA_scholz.csv', index_col=0)
 
 genomicPos = np.array(rnaSeq['pos'])
 propensity = np.array(rnaSeq['raw_propensity1'])
