@@ -26,6 +26,7 @@ echo "========================================================"
 # 4. confining generated initial configuration in the capsule
 # for this we will use nrg_min.mdp without Hi-C bonds.
 echo "========================================================"
+sed -i "s/;//g" topol.top
 $gmx grompp -f nrg_min.mdp -c pol_fork.gro -p topol.top -o em1.tpr
 $gmx mdrun -v -deffnm em1 -nt 1
 echo "========================================================"
