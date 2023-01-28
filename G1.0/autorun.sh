@@ -40,6 +40,7 @@ echo "========================================================"
 # 6. energy minimization to remove any overlaps and confine
 # any ribosome that falls outside the capsule
 echo "========================================================"
+sed -i "s/;//g" topol.top
 $gmx grompp -f nrg_min.mdp -c conf.gro -p topol.top -o em2.tpr
 $gmx mdrun -v -deffnm em2 -nt 1
 echo "========================================================"
@@ -74,7 +75,7 @@ echo "========================================================"
 
 # 11. remove ';' from the last three lines of topol.top. ';' means commented out.
 echo "========================================================"
-sed -i 's/;//g' topol.top
+sed -i "s/;//g" topol.top
 echo "========================================================"
 
 # 12. perform another minimization so that no particle crosses PBC
